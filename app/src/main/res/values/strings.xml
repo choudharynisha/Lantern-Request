@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BMCLanternVan</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="duration_unit">Minutes</string>
+    <string name="ETA">PM</string>
+    <string name="Rides">Rides before you</string>
+</resources>
