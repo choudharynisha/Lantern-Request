@@ -16,18 +16,19 @@ import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
-    Map<String, Map<Double, Double>> coordinates;
+    Map<String, Map<Double, Double>> coordinates = new HashMap<>();
     Place dropoff;
     Place pickup;
 
-    MapsActivity(String pickup, String dropoff) {
-        this.dropoff = new Place(dropoff, coordinates.get(dropoff));
-        this.pickup = new Place(pickup, coordinates.get(pickup));
-    } // MapsActivity
+//    MapsActivity(String pickup, String dropoff) {
+ //       this.dropoff = new Place(dropoff, coordinates.get(dropoff));
+  //      this.pickup = new Place(pickup, coordinates.get(pickup));
+    //} // MapsActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
