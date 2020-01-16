@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void openActivity2() {
         Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("pickup", locations[0]);
+        intent.putExtra("dropoff", locations[1]);
         startActivity(intent);
     } // openActivity2()
 } // MainActivity
