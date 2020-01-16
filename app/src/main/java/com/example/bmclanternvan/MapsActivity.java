@@ -18,8 +18,7 @@ import java.util.Map;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     Map<String, double[]> coordinates = new HashMap<>();
-    Place dropoff;
-    Place pickup;
+    Ride ride;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,8 +84,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         coordinates.put("Wyndham", wyndham);
 
         Intent intent = getIntent();
-        pickup = new Place(intent.getStringExtra("pickup"), coordinates.get(intent.getStringExtra("pickup")));
-        dropoff = new Place(intent.getStringExtra("dropoff"), coordinates.get(intent.getStringExtra("dropoff")));
+
+        // set pickup and dropoff locations
+        Place pickup = new Place(intent.getStringExtra("pickup"), coordinates.get(intent.getStringExtra("pickup")));
+        Place dropoff = new Place(intent.getStringExtra("dropoff"), coordinates.get(intent.getStringExtra("dropoff")));
+
+        ride = new Ride(1, pickup, dropoff);
     } // onCreate()
 
 
@@ -104,12 +107,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // set the pickup and dropoff locations
-        LatLng pickup = new LatLng(this.pickup.getLatitude(), this.pickup.getLongitude());
-        LatLng dropoff = new LatLng(this.dropoff.getLatitude(), this.dropoff.getLongitude());
+        LatLng pickup = new LatLng(ride.getPickup().getLatitude(), ride.getPickup().getLongitude());
+        LatLng dropoff = new LatLng(ride.getDropoff().getLatitude(), ride.getDropoff().getLongitude());
 
         // add markers to the map and focus the camera on where the markers are
-        mMap.addMarker(new MarkerOptions().position(pickup).title(this.pickup.getName()));
-        mMap.addMarker(new MarkerOptions().position(dropoff).title(this.dropoff.getName()));
+        mMap.addMarker(new MarkerOptions().position(pickup).title(ride.getPickup().getName()));
+        mMap.addMarker(new MarkerOptions().position(dropoff).title(ride.getDropoff().getName()));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(dropoff));
-    }
-}
+    } // onMapReady()
+} // MapsActivity
