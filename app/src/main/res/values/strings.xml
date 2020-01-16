@@ -4,4 +4,33 @@
     <string name="duration_unit">Minutes</string>
     <string name="ETA">PM</string>
     <string name="Rides">Rides before you</string>
+    <string name = "prompt">Choose Pickup location</string>
+    <string name = "prompt2">Choose Drop off location</string>
+    <string-array name="location">
+        <item> Select Location</item>
+        <item>Office of Undergraduate Admissions</item>
+        <item>Bewtts-y-Coed</item>
+        <item>Brecon Hall</item>
+        <item>Cambrian Row</item>
+        <item>Campus Center</item>
+        <item>Carpenter</item>
+        <item>Cartref</item>
+        <item>Dalton Hall</item>
+        <item>Denbigh</item>
+        <item>Erdman</item>
+        <item>Goodhart Theater</item>
+        <item>Gym</item>
+        <item>Health Center</item>
+        <item>Merion Hall</item>
+        <item>New Dorm</item>
+        <item>Park Science building</item>
+        <item>Pem Arch</item>
+        <item>Radnor</item>
+        <item>Rhoads</item>
+        <item>Rockefeller Hall</item>
+        <item>Starbucks</item>
+        <item>Taylor Hall</item>
+        <item>Wawa</item>
+        <item>Wyndham</item>
+    </string-array>
 </resources>
