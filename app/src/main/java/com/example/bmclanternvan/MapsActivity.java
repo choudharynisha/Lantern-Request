@@ -1,9 +1,12 @@
 package com.example.bmclanternvan;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -12,13 +15,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-    private GoogleMap mMap;
+    private GoogleMap map;
     Map<String, double[]> coordinates = new HashMap<>();
+    Queue<Ride> rides = new PriorityQueue<>();
     Ride ride;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +98,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Place pickup = new Place(intent.getStringExtra("pickup"), coordinates.get(intent.getStringExtra("pickup")));
         Place dropoff = new Place(intent.getStringExtra("dropoff"), coordinates.get(intent.getStringExtra("dropoff")));
 
+        // add the ride info
         ride = new Ride(1, pickup, dropoff);
+        rides.add(ride);
     } // onCreate()
 
 
@@ -104,15 +115,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        map = googleMap;
 
         // set the pickup and dropoff locations
         LatLng pickup = new LatLng(ride.getPickup().getLatitude(), ride.getPickup().getLongitude());
         LatLng dropoff = new LatLng(ride.getDropoff().getLatitude(), ride.getDropoff().getLongitude());
 
         // add markers to the map and focus the camera on where the markers are
-        mMap.addMarker(new MarkerOptions().position(pickup).title(ride.getPickup().getName()));
-        mMap.addMarker(new MarkerOptions().position(dropoff).title(ride.getDropoff().getName()));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(dropoff));
+        map.addMarker(new MarkerOptions().position(pickup).title(ride.getPickup().getName()));
+        map.addMarker(new MarkerOptions().position(dropoff).title(ride.getDropoff().getName()));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(dropoff, 15));
     } // onMapReady()
 } // MapsActivity

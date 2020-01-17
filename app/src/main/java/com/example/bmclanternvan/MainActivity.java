@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         locations[0] = pickUp;
         locations[1] = dropOff;
-        Log.i("pickup", "the pickup location is: " + pickUp + ", and drop off is: " + dropOff);
         openActivity2();
     }
 

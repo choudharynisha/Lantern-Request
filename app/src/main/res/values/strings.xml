@@ -7,7 +7,7 @@
     <string name = "prompt">Choose Pickup location</string>
     <string name = "prompt2">Choose Drop off location</string>
     <string-array name="location">
-        <item> Select Location</item>
+        <item>Select Location</item>
         <item>Office of Undergraduate Admissions</item>
         <item>Bewtts-y-Coed</item>
         <item>Brecon Hall</item>
@@ -23,7 +23,7 @@
         <item>Health Center</item>
         <item>Merion Hall</item>
         <item>New Dorm</item>
-        <item>Park Science building</item>
+        <item>Park Science Building</item>
         <item>Pem Arch</item>
         <item>Radnor</item>
         <item>Rhoads</item>
