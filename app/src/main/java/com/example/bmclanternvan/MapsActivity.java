@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -97,6 +99,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // set pickup and dropoff locations
         Place pickup = new Place(intent.getStringExtra("pickup"), coordinates.get(intent.getStringExtra("pickup")));
         Place dropoff = new Place(intent.getStringExtra("dropoff"), coordinates.get(intent.getStringExtra("dropoff")));
+
+
 
         // add the ride info
         ride = new Ride(1, pickup, dropoff);

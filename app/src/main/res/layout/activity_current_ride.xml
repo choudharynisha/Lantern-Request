@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
     tools:context=".MapsActivity">
 
     <TextView
@@ -22,14 +23,15 @@
         android:layout_marginEnd="182dp"
         android:layout_marginRight="182dp"
         android:layout_marginBottom="137dp"
-        android:text="Ride Info" />
+        android:text="Ride Info"
+        android:textColor="@color/purple" />
 
     <fragment
         android:id="@+id/map"
-        android:name = "com.google.android.gms.maps.SupportMapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="277dp"
         android:layout_height="311dp"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
     <TextView
         android:id="@+id/ETA"
@@ -48,6 +50,7 @@
         android:layout_marginRight="149dp"
         android:layout_marginBottom="63dp"
         android:ems="10"
-        android:text="@string/ETA" />
+        android:text="@string/ETA"
+        android:textColor="@color/blue" />
 
 </RelativeLayout>
